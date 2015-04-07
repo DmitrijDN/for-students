@@ -1,0 +1,8 @@
+*sublime*
+node_modules/
+bower_components/
+.DS_store
+public/
+*.html
+*.log
+Thumbs.db

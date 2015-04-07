@@ -1,0 +1,25 @@
+.view-counters-wrapper
+	.container
+		table.table.table-hover
+			.row.table-name(ng-init='predicate="result"')
+				h2
+					a(href="" ng-click="predicate=''") Все лайки
+			thead
+				tr.row.table-header.view-counters-header
+					th.col-md-3
+						a(href="" ng-click="predicate = 'userId.firstName'; reverse=!reverse") Пост
+							i.fa.fa-sort(style="padding-left:10px")
+					th.col-md-3
+						a(href="" ng-click="predicate = 'userId.email'; reverse=!reverse") Дата
+							i.fa.fa-sort(style="padding-left:10px")
+					th.col-md-3
+						a(href="" ng-click="predicate = 'testId.name'; reverse=!reverse") Лайки
+							i.fa.fa-sort(style="padding-left:10px")
+					th.col-md-3
+						a(href="" ng-click="predicate = 'testId.name'; reverse=!reverse") Дизлайки
+							i.fa.fa-sort(style="padding-left:10px")
+			tr.row.row-hover(ng-repeat='like in allLikesData' ng-click='viewDetails(like)')
+				td.col-md-3 {{like.name}}
+				td.col-md-3 {{like.date}}
+				td.col-md-3 {{like.likeCount}}
+				td.col-md-3 {{like.dislikeCount}}

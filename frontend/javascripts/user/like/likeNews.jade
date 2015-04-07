@@ -1,0 +1,12 @@
+.like-item-wrapper
+	h2 Ты лайкнул новость {{likedItem.subItem}}
+	.wrong-action
+		label Если ты хочешь отменить действие, нажми:
+		.btn.btn-danger(ng-click='cancelAction()') Отменить
+	.change-like-to-dislike
+		label Если ты хочешь дизлайкнуть, нажми
+		.btn.btn-default(ng-click='dislikeAction()') Дизлайкнуть
+	.confirm-action
+		label Оставить комментарий можно здесь:
+		input(type='text' ng-model='comment').form-control
+		.btn.btn-success(ng-click='confirmAction(comment)') Отправить комментарий

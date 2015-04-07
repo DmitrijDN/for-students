@@ -1,0 +1,20 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		link(href="./styles/bootstrap.css", rel="stylesheet")
+		link(href="./styles/style.css", rel="stylesheet")
+		link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", rel="stylesheet")
+	body
+		block content
+		script(src='./javascripts/libs/angular.js')
+		script(src='./javascripts/libs/angular-route.js')
+		script(src='./javascripts/libs/angular-resource.js')
+		script(src='./javascripts/libs/jquery.js')
+		script(src='./javascripts/libs/jquery.inputmask.js')
+		script(src='./javascripts/libs/jquery.inputmask.date.min.js')
+		script(src='./javascripts/libs/bootstrap.min.js')
+		script(src='./javascripts/libs/fingerprint.js')
+		script(src="./javascripts/main.js")
+		script.
+			angular.bootstrap(document, ['newsletter-liker-app']);

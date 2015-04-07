@@ -1,0 +1,41 @@
+.like-item-detaiils-wrapper
+	table.table.table-hover
+			.row.table-name
+				h2 {{likeItem.name + ' ' + likeItem.date}}
+			thead
+				tr.row.table-header.view-counters-header
+					th.col-md-3 Подтема						
+					th.col-md-3 Лайки
+					th.col-md-3 Дизлайки
+			tr.row.row-hover.sub-items(ng-repeat='subCounter in likeItem.subCounters' ng-click='viewDetails(like)')
+				td.col-md-3 {{subCounter.name}}
+				td.col-md-3 {{subCounter.likeCount}}
+				td.col-md-3 {{subCounter.dislikeCount}}
+				//- td.col-md-3 
+				//- 	.btn.btn-danger(ng-click='clearLikesDislikes(subCounter)') Очистить
+	.like-comments
+		h2 Комментарии по лайкам
+		.sub-item-like-comment-wrapper(ng-repeat='subCounter in likeItem.subCounters' ng-show='subCounter.likeComments.length > 0')
+			table.table.table-hover
+				.row.table-name
+					h2 {{subCounter.name}}
+				thead
+					tr.row.table-header.view-counters-header
+						th.col-md-1 #				
+						th.col-md-10 Комментрий
+				tr.row.row-hover.sub-items(ng-repeat='comment in subCounter.likeComments')
+					td.col-md-1 {{$index + 1}}
+					td.col-md-3 {{comment.body}}
+	.like-comments
+		h2 Комментарии по дизлайкам
+		.sub-item-like-comment-wrapper(ng-repeat='subCounter in likeItem.subCounters' ng-show='subCounter.dislikeComments.length > 0')
+			table.table.table-hover
+				.row.table-name
+					h2 {{subCounter.name}}
+				thead
+					tr.row.table-header.view-counters-header
+						th.col-md-1 #				
+						th.col-md-10 Комментрий
+				tr.row.row-hover.sub-items(ng-repeat='comment in subCounter.dislikeComments')
+					td.col-md-1 {{$index + 1}}
+					td.col-md-3 {{comment.body}}

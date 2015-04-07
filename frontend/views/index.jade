@@ -1,0 +1,8 @@
+extends ./layout
+
+block content
+	#main
+		#main-content(ng-view)
+
+	script(type='text/javascripts').
+		window._injectedData = JSON.parse('["data_replace"]');

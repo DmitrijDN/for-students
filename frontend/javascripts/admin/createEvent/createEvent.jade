@@ -1,0 +1,19 @@
+.create-counter-wrapper
+	h2 Создать счетчик
+	.creation
+		form(ng-submit='createCounter(post)')
+			input(type='text' placeholder='Введите название счетчика' ng-model='post.name' required).form-control
+			input.date(type="text" ng-model="post.date" placeholder="dd/mm/yyyy" data-inputmask="'alias': 'date'").form-control
+			.sub-counters(ng-repeat='subCounter in post.subCounters')
+				input(type='text' placeholder='Введите название подраздела' ng-model='subCounter.name' required).form-control
+				.btn.btn-danger(ng-click='deleteSubItem($index)' ng-show='post.subCounters.length > 1') Удалить
+			.btn.btn-default(ng-click='addSubCounters()') Добавить подраздел
+			input(type='submit' value='Создать')
+			.links-to-count(ng-show='isLinkGenerated' ng-repeat='link in linksToCount')
+				h3 {{link.name}}
+				.link-item
+					label.col-md-2 Like
+					input.col-md-4(type='text' ng-model='link.like').form-control
+				.link-item
+					label.col-md-2 Dislike
+					input.col-md-4(type='text' ng-model='link.dislike').form-control
